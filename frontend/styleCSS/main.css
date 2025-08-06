@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(36, 35, 35);
+    display: flex;
+    margin: 0px;
+    padding: 0%;
+}
+
+.center{
+    width: 100%;
+    min-height: 90vh;
+    margin-top: 10vh;
+    justify-content: center;
+    display: flex;
+}
+
+.mainPage{
+    border-radius: 1.6%;
+    border: solid wheat;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+#block1{
+    display: flex;
+    background-color: aquamarine;
+    width: 80vw;
+    height: 80px;
+    margin-top: 1em;
+    border-radius: 25px;
+}
+.avatar{
+    display: flex;
+    width: 1vw;
+    height: 1vh;
+    background-color: antiquewhite;
+}
