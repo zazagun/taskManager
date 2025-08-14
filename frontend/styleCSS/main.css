@@ -85,3 +85,16 @@ body {
         display: none;
     }
 }
+
+.input-field{
+    display: block;
+    position: fixed;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #32cd32;
+    bottom: 17px;
+    left: 0px;
+    right: 0px;
+    border-radius: 10px;
+    width: 100%;
+}
