@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>any name for the website</title>
+    <link rel="stylesheet" href="./styleCSS/main.css">
+    <link rel="icon" href="./image/task_logo.svg">
+</head>
+<body>
+    <div class="container">
+        <div class="tasks-container" id="tasksContainer">
+            <!-- high importand -->
+            <div class="task high-importance" id="task_1">
+                <div class="task-avatar">
+                    <img src="path_to_avatar/avatar1.svg" alt="User Avatar" class="avatar-image" id="avatar_1">
+                </div>
+                <div class="task-info">
+                    <p class="task-username" id="username_1">Name of user</p>
+                    <p class="task-text" id="task_text_1">some task, in future i can do adaptive layout</p>
+                </div>
+                <div class="task-importance" id="importance_1">high important</div>
+            </div>
+
+            <!-- midle importand -->
+            <div class="task middle-importance" id="task_2">
+                <div class="task-avatar">
+                        <!--указывать путь-->
+                    <img src="/*путь*/" alt="User Avatar" class="avatar-image" id="avatar_2">
+                </div>
+                <div class="task-info">
+                    <p class="task-username" id="username_2">Name of user</p>
+                    <p class="task-text" id="task_text_2">some task, in future i can do adaptive layout</p>
+                </div>
+                <div class="task-importance" id="importance_2">middle important</div>
+            </div>
+
+            <!-- low importand -->
+            <div class="task low-importance" id="task_3">
+                <div class="task-avatar">
+                    <img src="path_to_avatar/avatar3.svg" alt="User Avatar" class="avatar-image" id="avatar_3">
+                </div>
+                <div class="task-info">
+                    <p class="task-username" id="username_3">Name of user</p>
+                    <p class="task-text" id="task_text_3">some task, in future i can do adaptive layout</p>
+                </div>
+                <div class="task-importance" id="importance_3">low important</div>
+            </div>
+        </div>
+    </div>
+    <div class="input-field">
+        <input>
+        <div id="choiceImportand">
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+        </div>
+        <button>Создать задачу</button>
+    </div>
+</body>
+</html>

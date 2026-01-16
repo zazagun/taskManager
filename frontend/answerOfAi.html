@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>any name for the website</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">any name for the website</h1>
+        <div class="tasks-container" id="tasksContainer">
+            <!-- Здесь будут динамически добавляться задачи -->
+        </div>
+    </div>
+
+
+
+<script >
+        // Функция для выполнения запроса к бэкенду
+async function fetchTasks() {
+    try {
+        // Замените URL на ваш реальный эндпоинт
+        const response = await fetch('https://your-backend-api/tasks');
+        if (!response.ok) {
+            throw new Error('Ошибка при запросе к бэкенду');
+        }
+        const tasks = await response.json();
+        renderTasks(tasks);
+    } catch (error) {
+        console.error('Ошибка:', error);
+    }
+}
+
+// Функция для рендеринга задач на странице
+function renderTasks(tasks) {
+    const tasksContainer = document.getElementById('tasksContainer');
+    tasksContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых задач
+
+    tasks.forEach(task => {
+        // Создаём элемент задачи
+        const taskElement = document.createElement('div');
+        taskElement.className = `task ${getImportanceClass(task.importance)}`;
+        taskElement.id = `task_${task.id}`;
+
+        // Формируем HTML для задачи
+        taskElement.innerHTML = `
+            <div class="task-avatar">
+                <img src="${task.avatarUrl}" alt="User Avatar" class="avatar-image" id="avatar_${task.id}">
+            </div>
+            <div class="task-info">
+                <p class="task-username" id="username_${task.id}">${task.username}</p>
+                <p class="task-text" id="task_text_${task.id}">${task.text}</p>
+            </div>
+            <div class="task-importance" id="importance_${task.id}">${task.importance}</div>
+        `;
+
+        // Добавляем задачу в контейнер
+        tasksContainer.appendChild(taskElement);
+    });
+}
+
+// Функция для определения класса важности
+function getImportanceClass(importance) {
+    switch (importance) {
+        case 'high important':
+            return 'high-importance';
+        case 'middle important':
+            return 'middle-importance';
+        case 'low important':
+            return 'low-importance';
+        default:
+            return '';
+    }
+}
+
+// Вызываем функцию для загрузки задач при загрузке страницы
+window.onload = fetchTasks;
+
+</script>
+<!--примерный ответ от бэка-->
+<!--
+[
+    {
+        "id": 1,
+        "username": "Name of user 1",
+        "text": "some task 1",
+        "importance": "high important",
+        "avatarUrl": "path_to_avatar/avatar1.svg"
+    },
+    {
+        "id": 2,
+        "username": "Name of user 2",
+        "text": "some task 2",
+        "importance": "middle important",
+        "avatarUrl": "path_to_avatar/avatar2.svg"
+    },
+    {
+        "id": 3,
+        "username": "Name of user 3",
+        "text": "some task 3",
+        "importance": "low important",
+        "avatarUrl": "path_to_avatar/avatar3.svg"
+    }
+]
+-->
+</body>
+</html>
